@@ -1,0 +1,41 @@
+﻿<Window x:Class="wpfMeds.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:wpfMeds"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="90*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Категория:" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Название:" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <ComboBox x:Name="cb_category" Grid.Row="0" Grid.Column="1" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="50" MinWidth="200">
+            <ComboBoxItem Content="Антибиотики"/>
+            <ComboBoxItem Content="Витамины"/>
+            <ComboBoxItem Content="Обезболивающие"/>
+            <ComboBoxItem Content="Противовирусные"/>
+        </ComboBox>
+        <TextBox x:Name="tb_name" Grid.Row="1" Grid.Column="1" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="50" MinWidth="200"/>
+        <Button x:Name="bt_filter" Grid.RowSpan="2" Grid.Column="2" Content="Фильтр" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center" MinHeight="120" MinWidth="200" Click="bt_filter_Click"/>
+        <DataGrid x:Name="gd_meds" AutoGenerateColumns="False" Grid.Row="2" Grid.RowSpan="2" Grid.ColumnSpan="3">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Количество" Binding="{Binding count}"/>
+                <DataGridTextColumn Header="Цена" Binding="{Binding price}"/>
+                <DataGridTextColumn Header="Категория" Binding="{Binding category}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>
